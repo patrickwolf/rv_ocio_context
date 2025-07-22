@@ -2,7 +2,7 @@ ocio_profile_version: 2
 
 search_path: 
   - luts
-  - C:/Temp/_media
+  - C:/test_ocio/_media
 strictparsing: true
 
 description: A clean ACES config that uses Looks and Views to build a flexible pipeline.

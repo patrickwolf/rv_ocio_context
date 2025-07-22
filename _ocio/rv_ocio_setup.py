@@ -23,8 +23,7 @@ def ocio_node_from_media(config, node, default, media=None, attributes={}):
     #
 
     result = [{"nodeType" : d, "context" : {}, "properties" : {}} for d in default]
-    context = {"CDL_FILE_PATH" : "HSO_0510_comp_BOT_v003.cdl",
-                             "CDL_ID":"HSO_0510_PL01_V01",}
+    context = {"CDL_FILE_PATH" : "HSO_0510_comp_BOT_v003.cdl",}
 
     nodeType = commands.nodeType(node)
     if (nodeType == "RVLinearizePipelineGroup"):
