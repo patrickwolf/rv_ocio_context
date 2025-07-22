@@ -1,0 +1,45 @@
+ocio_profile_version: 2
+
+search_path: 
+  - luts
+  - C:/Temp/_media
+strictparsing: true
+
+description: A clean ACES config that uses Looks and Views to build a flexible pipeline.
+
+roles:
+  scene_linear: ACES - ACEScg
+  default: ACES - ACEScg
+
+# Defines the dynamic CDL and static Show LUT as separate, toggleable Looks.
+looks:
+  - !<Look>
+    name: shot_specific_look
+    process_space: scene_linear
+    transform: !<GroupTransform>
+      children:
+#        - !<FileTransform> {src: "$CDL_FILE_PATH", cccid: 0, interpolation: linear}
+        - !<FileTransform> {src: "${CDL_FILE_PATH}", cccid: 0, interpolation: linear}
+#        - !<FileTransform> {src: "HSO_0510_comp_BOT_v003.cdl", cccid: 0, interpolation: linear}
+
+displays:
+  ACES:     
+    - !<View> {name: Raw, colorspace: Utility - Raw}
+
+    # This view applies ONLY the sidecar CDL look.
+    - !<View> {name: Raw + CDL, colorspace: Utility - Raw, looks: "+shot_specific_look"}
+
+colorspaces:
+  # --- Working Space ---
+  - !<ColorSpace>
+    name: ACES - ACEScg
+    family: ACES
+    description: The primary scene-linear working space.
+    isdata: false
+  
+  # --- Utility ---
+  - !<ColorSpace>
+    name: Utility - Raw
+    family: Utility
+    isdata: true
+
