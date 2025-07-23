@@ -1,3 +1,5 @@
+Install: https://docs.astral.sh/uv/
+
 Checkout contents to C:\test_ocio on Windows 
 
 Then when running rv_ocio.bat you'll receive this error message
