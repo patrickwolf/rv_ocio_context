@@ -1,0 +1,14 @@
+<ColorDecisionList>
+    <ColorDecision>
+        <ColorCorrection id="blue">
+            <SOPNode>
+                <Slope>0.80 0.80 1.50</Slope>
+                <Offset>-0.05 -0.05 0.10</Offset>
+                <Power>1.0 1.0 0.90</Power>
+            </SOPNode>
+            <SatNode>
+                <Saturation>1.0</Saturation>
+            </SatNode>
+        </ColorCorrection>
+    </ColorDecision>
+</ColorDecisionList>
